@@ -20,17 +20,20 @@
         }
 
         .container {
-            width: 80%;
-            max-width: 900px;
+            width: 85%;
+            max-width: 950px;
             margin: auto;
             overflow: hidden;
-            padding: 40px 0;
+            padding: 60px 0;
             animation: fadeIn 1.2s ease-out;
         }
 
+        /* Side-by-Side Header Styling */
         header {
-            text-align: center;
-            padding-bottom: 30px;
+            display: flex;
+            align-items: center;
+            gap: 40px;
+            padding-bottom: 40px;
             border-bottom: 1px solid #30363d;
         }
 
@@ -41,46 +44,55 @@
             object-fit: cover;
             border: 3px solid #58a6ff;
             transition: transform 0.3s ease, box-shadow 0.3s ease;
-            margin-bottom: 15px;
         }
 
-        .profile-pic:hover {
-            transform: scale(1.05);
-            box-shadow: 0 0 15px rgba(88, 166, 255, 0.4);
+        .header-content {
+            flex: 1;
         }
 
-        h1 { color: #58a6ff; margin-bottom: 5px; font-size: 2.5em; }
-        h2 { color: #8b949e; font-weight: 300; margin-top: 0; }
+        h1 { color: #58a6ff; margin: 0; font-size: 2.8em; }
+        h2.subtitle { color: #8b949e; font-weight: 400; margin: 10px 0 20px 0; font-size: 1.4em; }
         
+        /* Professional GitHub Button (Slate/Grey instead of Green) */
         .btn-github {
-            display: inline-block;
-            background-color: #238636;
-            color: white;
+            display: inline-flex;
+            align-items: center;
+            background-color: #30363d;
+            color: #f0f6fc;
             padding: 10px 20px;
             border-radius: 6px;
             text-decoration: none;
-            font-weight: bold;
-            margin-top: 15px;
-            transition: background-color 0.2s ease;
+            font-weight: 500;
+            font-size: 0.95em;
+            border: 1px solid rgba(240, 246, 252, 0.1);
+            transition: background-color 0.2s ease, border-color 0.2s ease;
         }
         
         .btn-github:hover {
-            background-color: #2ea043;
+            background-color: #3c444d;
+            border-color: #8b949e;
             text-decoration: none;
         }
 
+        .contact-links {
+            margin-top: 15px;
+            display: flex;
+            gap: 15px;
+            font-size: 0.9em;
+        }
+
+        /* Section Styling */
         .section {
             margin: 40px 0;
             padding: 25px;
             background: #161b22;
-            border-radius: 8px;
+            border-radius: 12px;
             border: 1px solid #30363d;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            transition: transform 0.3s ease;
         }
 
         .section:hover {
             transform: translateY(-3px);
-            box-shadow: 0 8px 15px rgba(0,0,0,0.4);
         }
 
         .timeline-item {
@@ -90,8 +102,10 @@
         .timeline-item h3 { color: #e6edf3; border-bottom: 1px solid #30363d; padding-bottom: 5px; margin-bottom: 5px; }
         
         .timeline-date {
-            color: #8b949e;
-            font-size: 0.9em;
+            color: #58a6ff;
+            font-size: 0.85em;
+            text-transform: uppercase;
+            letter-spacing: 1px;
             font-weight: bold;
             margin-bottom: 10px;
         }
@@ -104,17 +118,23 @@
         }
 
         .skill-tag {
-            background: #1f6feb;
-            color: white;
-            padding: 5px 12px;
-            border-radius: 15px;
-            font-size: 0.9em;
+            background: rgba(31, 111, 235, 0.15);
+            color: #58a6ff;
+            border: 1px solid rgba(88, 166, 255, 0.3);
+            padding: 5px 14px;
+            border-radius: 20px;
+            font-size: 0.85em;
         }
         
         ul { padding-left: 20px; margin-top: 5px; }
         li { margin-bottom: 8px; }
         a { color: #58a6ff; text-decoration: none; }
         a:hover { text-decoration: underline; }
+
+        @media (max-width: 768px) {
+            header { flex-direction: column; text-align: center; }
+            .contact-links { justify-content: center; }
+        }
     </style>
 </head>
 <body>
@@ -122,14 +142,26 @@
     <div class="container">
         <header>
             <img src="ABHIRAMKPHOTO.jpg.jpeg" alt="Abhiram K" class="profile-pic" onerror="this.src='https://via.placeholder.com/180x180?text=Upload+Photo'">
-            <h1>Abhiram K</h1>
-            <h2>Quantum Optics Researcher & Hardware Engineering</h2>
             
-            <a href="https://github.com/ABHIRAM-KUNIYIL" target="_blank" class="btn-github"> View My GitHub Profile</a>
+            <div class="header-content">
+                <h1>Abhiram K</h1>
+                <h2 class="subtitle">Quantum Optics Researcher & Hardware Engineering</h2>
+                
+                <a href="https://github.com/ABHIRAM-KUNIYIL" target="_blank" class="btn-github">
+                    <svg style="margin-right: 8px;" height="20" width="20" viewBox="0 0 16 16" fill="currentColor"><path d="M8 0c4.42 0 8 3.58 8 8a8.013 8.013 0 0 1-5.45 7.59c-.4.08-.55-.17-.55-.38 0-.27.01-1.13.01-2.2 0-.75-.25-1.23-.54-1.48 1.78-.2 3.65-.88 3.65-3.95 0-.88-.31-1.59-.82-2.15.08-.2.36-1.02-.08-2.12 0 0-.67-.22-2.2.82-.64-.18-1.32-.27-2-.27-.68 0-1.36.09-2 .27-1.53-1.03-2.2-.82-2.2-.82-.44 1.1-.16 1.92-.08 2.12-.51.56-.82 1.28-.82 2.15 0 3.06 1.86 3.75 3.64 3.95-.23.2-.44.55-.51 1.07-.46.21-1.61.55-2.33-.66-.15-.24-.6-.83-1.23-.82-.67.01-.27.38.01.53.34.19.73.9.82 1.13.16.45.68 1.31 2.69.94 0 .67.01 1.3.01 1.49 0 .21-.15.45-.55.38A7.995 7.995 0 0 1 0 8c0-4.42 3.58-8 8-8Z"></path></svg>
+                    View GitHub Profile
+                </a>
+
+                <div class="contact-links">
+                    <a href="mailto:abhiramk@iitg.ac.in">abhiramk@iitg.ac.in</a>
+                    <span style="color: #30363d;">|</span>
+                    <a href="https://www.linkedin.com/in/abhiram-k-376063228" target="_blank">LinkedIn</a>
+                </div>
+            </div>
         </header>
 
         <div class="section">
-            <h2 style="color: #58a6ff;"> Experience & Research</h2>
+            <h2 style="color: #58a6ff; margin-top: 0;">Experience & Research</h2>
 
             <div class="timeline-item">
                 <h3>Research Scholar</h3>
@@ -139,12 +171,13 @@
                     <li>Designing and fabricating custom laboratory infrastructure and electronic hardware for optical experiments.</li>
                 </ul>
             </div>
+
             <div class="timeline-item">
                 <h3>Junior Research Fellow</h3>
-                <div class="timeline-date">Aug 2025 – December 2025 | IIT Guwahati</div>
+                <div class="timeline-date">Aug 2025 – Dec 2025 | IIT Guwahati</div>
                 <ul>
-                    <li>Working on the construction of a quantum processor utilizing trapped Rubidium atoms.</li>
-                    <li>Designing and fabricating custom laboratory infrastructure and electronic hardware for optical experiments.</li>
+                    <li>Assisted in the initial setup of neutral atom trapping systems.</li>
+                    <li>Developed control electronics for laser stability and atom manipulation.</li>
                 </ul>
             </div>
 
@@ -155,61 +188,44 @@
                     <li>Worked on Efficient Quantum State Preparation under the guidance of Dr. Shibdas Roy.</li>
                 </ul>
             </div>
-            
-            <div class="timeline-item">
-                <h3>Advanced Electronics Lab Team Lead | Department of Physics & Astrophysics</h3>
-                <div class="timeline-date">Final Year Lab Projects</div>
-                <ul>
-                    <li>Developed an automated waste sorting system for plastic, metal, and glass using Arduino Uno and inductive/capacitive/ultrasonic sensors.</li>
-                    <li>Designed and implemented complex circuits utilizing the 80851 microcontroller.</li>
-                </ul>
-            </div>
         </div>
 
         <div class="section">
-            <h2 style="color: #58a6ff;"> Educational Background</h2>
+            <h2 style="color: #58a6ff; margin-top: 0;">Educational Background</h2>
 
             <div class="timeline-item">
                 <h3>PhD Physics</h3>
-                <div class="timeline-date">Jan 26 - Present | IIT GUWAHATI</div>
-                
+                <div class="timeline-date">Jan 2026 - Present | IIT Guwahati</div>
             </div>
             
             <div class="timeline-item">
                 <h3>M.Sc. Physics</h3>
-                <div class="timeline-date">Graduated Jul 2024 | Department of Physics & Astrophysics, University Of Delhi</div>
-                
+                <div class="timeline-date">Graduated Jul 2024 | University Of Delhi</div>
             </div>
             
             <div class="timeline-item">
                 <h3>B.Sc(Hons). Physics</h3>
-                <div class="timeline-date">Graduated Jul 2022 | Hindu College, University of Delhi</div>
-                
+                <div class="timeline-date">Graduated Jul 2022 | Hindu College, DU</div>
             </div>
         </div>
 
         <div class="section">
-            <h2 style="color: #58a6ff;"> Technical Arsenal</h2>
+            <h2 style="color: #58a6ff; margin-top: 0;">Technical Arsenal</h2>
             <div class="skills">
                 <span class="skill-tag">Quantum Circuits & Algorithms</span>
                 <span class="skill-tag">Kicad & PCB designing</span>
-                <span class="skill-tag"> Qiskit</span>
+                <span class="skill-tag">Qiskit</span>
                 <span class="skill-tag">Electronic Circuit Design</span>
                 <span class="skill-tag">Sensors & Microcontrollers</span>
-                <span class="skill-tag">Fusion 360</span>
+                <span class="skill-tag">Fusion 360 / FreeCAD</span>
                 <span class="skill-tag">Python, C / C++ (Arduino)</span>
                 <span class="skill-tag">Assembly Language</span>
-                 
             </div>
         </div>
 
-        <div style="text-align: center; margin-top: 40px; color: #8b949e;">
+        <footer style="text-align: center; margin-top: 60px; padding-bottom: 40px; color: #8b949e; border-top: 1px solid #30363d; padding-top: 20px;">
             <p>Aiming to drive the future of neutral atom computing.</p>
-            <p>
-                <a href="mailto:abhiramabhi6345@gmail.com">abhiramk@iitg.ac.in</a> | 
-                <a href="https://www.linkedin.com/in/abhiram-k-376063228" target="_blank">LinkedIn</a>
-            </p>
-        </div>
+        </footer>
     </div>
 
 </body>
